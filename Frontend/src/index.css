@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  /* --- 1. FONTS --- */
+  --font-display: "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  /* --- 2. YOUR CUSTOM PALETTE --- */
+  
+  /* "Yellow Sapling" (#DFD6AE) */
+  --color-sapling-50: #faf9f5;
+  --color-sapling-100: #f5f2e6;
+  --color-sapling-200: #ebe6ce;
+  --color-sapling-300: #dfd6ae;
+  --color-sapling-400: #cdc291;
+  
+  /* "Dark Blue" (#274245) */
+  --color-darkblue-50: #edf3f4;
+  --color-darkblue-100: #d2e0e2;
+  --color-darkblue-200: #abc6ca;
+  --color-darkblue-500: #3e6368;
+  --color-darkblue-600: #274245;
+  --color-darkblue-700: #203639;
+  --color-darkblue-900: #121e20;
+
+  /* --- 3. OVERRIDING TAILWIND DEFAULTS --- */
+  --color-blue-50: var(--color-darkblue-50);
+  --color-blue-100: var(--color-darkblue-100);
+  --color-blue-500: var(--color-darkblue-500);
+  --color-blue-600: var(--color-darkblue-600);
+  --color-blue-700: var(--color-darkblue-700);
+  --color-blue-900: var(--color-darkblue-900);
+
+  /* --- 4. SEMANTIC VARIABLES --- */
+  --color-bg-surface: var(--color-sapling-50); 
+  --color-bg-soft: var(--color-sapling-100); 
+  --color-text-main: var(--color-darkblue-900);
+  --color-text-muted: #5d6b6d;
+  
+  /* --- 5. CUSTOM SHADOWS --- */
+  --shadow-soft: 0 4px 20px -2px rgba(39, 66, 69, 0.08);
+  --shadow-card: 0 10px 15px -3px rgba(39, 66, 69, 0.1), 0 4px 6px -2px rgba(39, 66, 69, 0.05);
+}
+
+/* --- BASE STYLES --- */
+
+body {
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-main);
+  font-family: var(--font-display);
+  /* FIX: Use @apply to invoke the Tailwind utility */
+  @apply antialiased; 
+}
+
+/* Glass Panels */
+.glass-panel {
+  @apply bg-white/60 backdrop-blur-xl border border-[var(--color-sapling-200)];
+}
+
+/* Cards */
+.soft-card {
+  @apply bg-white rounded-3xl border border-[var(--color-sapling-200)] transition-all duration-300;
+  box-shadow: var(--shadow-card);
+}
+
+.soft-card:hover {
+  @apply -translate-y-1 border-[var(--color-sapling-300)];
+  box-shadow: 0 20px 25px -5px rgba(39, 66, 69, 0.15);
+}
+
+/* Inputs */
+input, textarea, select {
+  @apply outline-none border border-[var(--color-sapling-200)] bg-white text-[var(--color-darkblue-900)];
+}
+
+input:focus, textarea:focus, select:focus {
+  @apply ring-2 ring-[var(--color-sapling-300)] border-[var(--color-darkblue-500)];
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-darkblue-600);
+  letter-spacing: -0.02em;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-sapling-300);
+  color: var(--color-darkblue-900);
+}
