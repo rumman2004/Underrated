@@ -1,9 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Facebook, Twitter, Instagram, Linkedin, ArrowRight } from 'lucide-react';
+import { 
+  MapPin, 
+  Facebook, 
+  Twitter, 
+  Instagram, 
+  Linkedin, 
+  Github, // Added Github icon
+  ArrowRight 
+} from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  // Define social links with their specific URLs
+  const socialLinks = [
+    { icon: Facebook, href: "https://www.facebook.com/Rumman.ahmed.12532" },
+    { icon: Twitter, href: "https://x.com/rumman_tw11" },
+    { icon: Instagram, href: "https://www.instagram.com/rumman.ig" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/rummanahmed04/" },
+    { icon: Github, href: "https://github.com/rumman2004" }
+  ];
 
   return (
     <footer className="bg-[var(--color-bg-surface)] border-t border-[var(--color-sapling-200)] pt-12 pb-8 md:pt-20 md:pb-10 font-sans">
@@ -26,10 +43,18 @@ const Footer = () => {
               Curating the world's hidden gems. We help travelers discover 
               places that maps often forget, creating deeper connections with nature and history.
             </p>
-            <div className="flex gap-3 md:gap-4 pt-2">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[var(--color-sapling-100)] flex items-center justify-center text-[var(--color-darkblue-600)] hover:bg-[var(--color-darkblue-600)] hover:text-[var(--color-sapling-300)] transition-all duration-300">
-                  <Icon className="w-4 h-4 md:w-5 md:h-5" />
+            
+            {/* Social Media Icons */}
+            <div className="flex gap-3 md:gap-4 pt-2 flex-wrap">
+              {socialLinks.map((social, i) => (
+                <a 
+                  key={i} 
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[var(--color-sapling-100)] flex items-center justify-center text-[var(--color-darkblue-600)] hover:bg-[var(--color-darkblue-600)] hover:text-[var(--color-sapling-300)] transition-all duration-300"
+                >
+                  <social.icon className="w-4 h-4 md:w-5 md:h-5" />
                 </a>
               ))}
             </div>
