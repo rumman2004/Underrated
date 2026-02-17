@@ -78,7 +78,7 @@ const AllPlaces = () => {
   }
 
   return (
-    <div className="bg-[var(--color-bg-surface)] min-h-screen pt-24 pb-12 md:pt-32 md:pb-24">
+    <div className="bg-[var(--color-bg-surface)] min-h-screen pt-14 pb-12 md:pt-32 md:pb-24">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Back Button */}
