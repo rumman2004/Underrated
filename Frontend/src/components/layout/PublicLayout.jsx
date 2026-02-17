@@ -13,7 +13,7 @@ const PublicLayout = () => {
           flex-grow ensures this section expands to fill space,
           pushing the footer down.
       */}
-      <main className="flex-grow pt-20"> 
+      <main className="flex-grow pt-16"> 
         {/* pt-20 adds padding so content doesn't hide behind a fixed navbar */}
         <Outlet />
       </main>
